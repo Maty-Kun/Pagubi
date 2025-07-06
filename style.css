@@ -1,0 +1,248 @@
+/* Fondo general suave */
+body {
+  background: #f3f6fa;
+  margin: 0;
+  font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+/* Tarjetas visuales */
+.card {
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+  padding: 0;
+  margin: 20px;
+  overflow: hidden;
+  width: 320px;
+  min-height: 380px; /* Altura fija para todas las tarjetas */
+  display: flex;
+  flex-direction: column;
+  transition: box-shadow 0.2s;
+  align-items: stretch;
+}
+.card:hover {
+  box-shadow: 0 4px 16px rgba(0,0,0,0.18);
+}
+.card-content {
+  padding: 16px;
+  flex: 1;
+}
+.card-title {
+  margin: 0 0 8px 0;
+  font-size: 1.1rem;
+}
+.card-price {
+  margin: 0 0 12px 0;
+  font-weight: bold;
+  color: #28A745;
+}
+
+/* Imagen opcional en la tarjeta */
+.card-image {
+  width: 100%;
+  height: 200px;         /* Altura fija para todas las imágenes */
+  object-fit: cover;     /* Recorta y centra la imagen */
+  border-bottom: 1px solid #ddd;
+  display: block;
+}
+
+/* Botones en la tarjeta */
+.card-buttons {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.card-buttons button {
+  padding: 6px 12px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.modify-btn {
+  background-color: #FFC107;
+  color: #000;
+}
+
+.remove-btn {
+  background-color: #DC3545;
+  color: #fff;
+}
+
+/* Modal overlay */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+/* Modal window */
+.modal {
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  width: 300px;
+  max-width: 90%;
+}
+
+.modal h2 {
+  margin-top: 0;
+}
+
+.modal label {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 14px;
+}
+
+.modal label input {
+  width: 100%;
+  padding: 6px;
+  margin-top: 4px;
+  box-sizing: border-box;
+}
+
+.modal-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.modal-buttons button {
+  padding: 6px 12px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+#modal-save {
+  background-color: #28A745;
+  color: #fff;
+}
+
+#modal-cancel {
+  background-color: #6C757D;
+  color: #fff;
+}
+
+/* Dashboard grid */
+.dashboard {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  padding: 30px 0;
+}
+
+/* Header azul oscuro con input alineado */
+header {
+  background: linear-gradient(90deg, #102542 80%, #1b3358 100%);
+  color: #fff;
+  text-align: center;
+  padding: 32px 0 24px 0;
+  margin-bottom: 0;
+  box-shadow: 0 2px 8px rgba(16,37,66,0.08);
+  position: relative;
+}
+
+header h1 {
+  margin: 0 0 18px 0;
+  font-size: 2.2rem;
+  letter-spacing: 1px;
+}
+
+/* Input y botón dentro del header */
+#input-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin: 0 auto;
+  max-width: 500px;
+}
+
+#input-container input[type="text"] {
+  padding: 8px 12px;
+  border-radius: 4px;
+  border: none;
+  width: 65%;
+  font-size: 1rem;
+  background: #e9eef6;
+  color: #102542;
+  outline: none;
+  transition: box-shadow 0.2s;
+  box-shadow: 0 1px 3px rgba(16,37,66,0.06);
+}
+
+#input-container input[type="text"]:focus {
+  box-shadow: 0 2px 8px rgba(16,37,66,0.13);
+}
+
+#input-container button {
+  padding: 8px 18px;
+  border-radius: 4px;
+  border: none;
+  background: #28A745;
+  color: #fff;
+  font-size: 1rem;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background 0.2s;
+}
+
+#input-container button:hover {
+  background: #218838;
+}
+
+/* Responsive para tarjetas y dashboard */
+@media (max-width: 600px) {
+  .dashboard {
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px 0;
+  }
+  .card {
+    width: 95vw;
+    min-width: unset;
+    margin: 10px auto;
+    min-height: 320px;
+  }
+  .card-image {
+    height: 150px;
+    max-width: 100%;
+  }
+  .modal {
+    width: 95vw;
+    max-width: 98vw;
+    padding: 10px;
+  }
+  #input-container {
+    flex-direction: column;
+    gap: 8px;
+    max-width: 98vw;
+  }
+  header {
+    padding: 24px 0 16px 0;
+  }
+}
+
+/* Ajustes para imagen lateral en tarjeta */
+.card > div[style*="flex"] {
+  width: 100%;
+}
+.card > div[style*="flex"] .card-image {
+  width: 100px !important;
+  height: 100px !important;
+  min-width: 100px;
+  min-height: 100px;
+  object-fit: cover;
+}
